@@ -15,7 +15,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/web-afsana-noor-keya-",
   // Optional: shown in Contact and Footer when filled in, hidden when "". Example: "you@gmail.com"
   email: "",
-  siteUrl: "https://latest-portfolio-lemon.vercel.app",
+  siteUrl: "https://keya-portfolio-chi.vercel.app",
 };
 
 export const nav = {
