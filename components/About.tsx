@@ -23,7 +23,7 @@ function CodeCard() {
           {"\n"}  role<span className={p}>:</span> <span className={s}>&quot;Full-Stack Developer&quot;</span>,
           {"\n"}  stack<span className={p}>:</span> [<span className={s}>&quot;Next.js&quot;</span>, <span className={s}>&quot;Node.js&quot;</span>, <span className={s}>&quot;MongoDB&quot;</span>],
           {"\n"}  mentoring<span className={p}>:</span> <span className={s}>&quot;Programming Hero&quot;</span>,
-          {"\n"}  studentsPlaced<span className={p}>:</span> <span className={n}>82</span>,
+          {"\n"}  studentsPlaced<span className={p}>:</span> <span className={n}>80</span>,
           {"\n"}  openTo<span className={p}>:</span> <span className={s}>&quot;remote roles&quot;</span>,
           {"\n"}
           {"}"}
