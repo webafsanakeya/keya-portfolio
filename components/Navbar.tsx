@@ -24,7 +24,9 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 bg-bg/60 backdrop-blur-md [mask-image:linear-gradient(to_bottom,#000_78%,transparent)]">
+    <header className="sticky top-0 z-50">
+      {/* The soft fade lives on this background layer only, so the More menu is not clipped by it. */}
+      <div aria-hidden className="absolute inset-0 -z-10 bg-bg/60 backdrop-blur-md [mask-image:linear-gradient(to_bottom,#000_78%,transparent)]" />
       <div className="mx-auto flex w-full max-w-[1280px] items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <a href="#top" className="whitespace-nowrap font-brand text-[0.68rem] uppercase tracking-[0.18em] sm:text-[0.74rem]">
           <span className="sm:hidden">{profile.shortName}</span>
@@ -33,7 +35,7 @@ export default function Navbar() {
 
         <nav
           aria-label="Primary"
-          className="flex items-center gap-0.5 rounded-full border border-line bg-surface/80 p-1 shadow-[0_0_40px_rgba(139,92,246,0.22)] backdrop-blur-md"
+          className="nav-pill flex items-center gap-0.5 rounded-full border border-line bg-surface/80 p-1 backdrop-blur-md"
         >
           {nav.main.map((n, i) => (
             <a
@@ -59,7 +61,7 @@ export default function Navbar() {
             {open && (
               <div
                 role="menu"
-                className="absolute right-0 top-[calc(100%+10px)] grid min-w-[10.5rem] gap-0.5 rounded-2xl border border-line bg-surface p-1.5 shadow-[0_10px_50px_rgba(0,0,0,0.6)]"
+                className="menu-pop absolute right-0 top-[calc(100%+10px)] grid min-w-[11rem] gap-0.5 rounded-2xl border border-line bg-surface p-1.5 shadow-[0_10px_50px_rgba(0,0,0,0.6)]"
               >
                 {[...(nav.main.slice(0, 1)), ...nav.more].map((n) => (
                   <a

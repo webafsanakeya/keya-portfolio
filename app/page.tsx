@@ -1,4 +1,6 @@
 import Starfield from "@/components/Starfield";
+import Orbs from "@/components/Orbs";
+import ScrollReveal from "@/components/ScrollReveal";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -15,6 +17,8 @@ export default function Home() {
   return (
     <>
       <Starfield />
+      <Orbs />
+      <ScrollReveal />
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[560px] overflow-hidden">
         <div className="aurora absolute inset-0" />
         <div className="horizon">

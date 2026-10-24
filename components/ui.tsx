@@ -32,7 +32,7 @@ export function Chip({ children }: { children: ReactNode }) {
 }
 
 const socialBtn =
-  "grid h-10 w-10 place-items-center rounded-full border border-line bg-surface/70 text-muted hover:border-violetsoft hover:text-white hover:shadow-[0_0_18px_rgba(139,92,246,0.5)]";
+  "orbit-btn grid h-10 w-10 place-items-center rounded-full border border-line bg-surface/70 text-muted hover:border-violetsoft hover:text-white hover:shadow-[0_0_18px_rgba(139,92,246,0.5)]";
 
 export function SocialLinks({
   github,
