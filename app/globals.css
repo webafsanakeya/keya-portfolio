@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #050314;
+  --color-surface: #0b0820;
+  --color-surface2: #130e36;
+  --color-line: #261d5a;
+  --color-fg: #f1efff;
+  --color-muted: #a8a5cf;
+  --color-violet: #7c3aed;
+  --color-violetsoft: #c4b5fd;
+  --color-cyan: #22d3ee;
+  --color-teal: #2dd4bf;
+  --color-pink: #f472b6;
+  --color-good: #34d399;
+
+  /* Inter for everything, Orbitron only for the logo text. */
+  --font-display: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-brand: var(--font-orbitron), "Arial Black", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@utility text-grad {
+  background-image: linear-gradient(100deg, #b66dff 0%, #7c8cff 50%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility card-surface {
+  position: relative;
+  min-width: 0;
+  border: 1px solid var(--color-line);
+  border-radius: 1rem;
+  background: linear-gradient(170deg, rgba(19, 14, 54, 0.85), rgba(11, 8, 32, 0.9));
+}
+
+.card-surface::before {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-violet), transparent);
+}
+
+/* Soft purple haze behind the hero. */
+.aurora {
+  background:
+    radial-gradient(ellipse 55% 60% at 50% 0%, rgba(124, 58, 237, 0.55), transparent 70%),
+    radial-gradient(ellipse 30% 30% at 88% 30%, rgba(34, 211, 238, 0.1), transparent 70%);
+}
+/*
+  Animated half-circle at the top of the hero.
+  The ring's centre sits on the top edge of the page, so only its lower half shows.
+  - .arc-rim:  a conic colour sweep that slowly rotates around the ring
+  - .arc-glow: a soft halo that breathes
+  - .ripple:   thin rings that rise toward the navbar and fade out
+*/
+.horizon {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.arc-rim,
+.arc-glow,
+.ripple {
+  position: absolute;
+  /* Centre with `left`, not transform: rotate/scale animations would otherwise swing the ring sideways. */
+  left: calc(50% - var(--arc) / 2);
+  top: calc(var(--arc) / -2);
+  width: var(--arc);
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.horizon {
+  /* Size of the half-circle. Make this number smaller for a smaller arc, larger for a bigger one. */
+  --arc: min(380px, 84vw);
+}
+.arc-rim {
+  background: conic-gradient(from 0deg, #fbf5ff, #d8b4fe, #a855f7, #818cf8, #67e8f9, #c084fc, #fbf5ff);
+  -webkit-mask-image: radial-gradient(closest-side, transparent 80%, #000 86%, #000 93%, transparent 99%);
+  mask-image: radial-gradient(closest-side, transparent 80%, #000 86%, #000 93%, transparent 99%);
+  filter: blur(1.5px) drop-shadow(0 0 16px rgba(192, 132, 252, 0.95));
+  animation: arc-spin 14s linear infinite;
+}
+.arc-glow {
+  background: radial-gradient(closest-side, transparent 70%, rgba(168, 85, 247, 0.75) 88%, transparent 100%);
+  filter: blur(18px);
+  animation: arc-breathe 6s ease-in-out infinite;
+}
+.ripple {
+  border: 2px solid rgba(196, 181, 253, 0.6);
+  box-shadow: 0 0 28px rgba(168, 85, 247, 0.5), inset 0 0 28px rgba(168, 85, 247, 0.25);
+  opacity: 0;
+  animation: ripple-up 7.5s ease-out infinite;
+}
+.ripple.r2 {
+  animation-delay: 2.5s;
+}
+.ripple.r3 {
+  animation-delay: 5s;
+}
+@keyframes arc-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+@keyframes arc-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    scale: 1;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.04;
+  }
+}
+@keyframes ripple-up {
+  0% {
+    translate: 0 90px;
+    scale: 0.62;
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.85;
+  }
+  100% {
+    translate: 0 -6px;
+    scale: 1.08;
+    opacity: 0;
+  }
+}
+
+/* Gradient edge along the top of a card (experience and project cards). */
+.card-top::before {
+  display: none;
+}
+.card-top::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, #a855f7, #22d3ee);
+}
+
+/* Glow under the skills icons. */
+.skills-glow {
+  background: radial-gradient(ellipse 55% 75% at 50% 100%, rgba(124, 58, 237, 0.35), rgba(79, 70, 229, 0.1) 55%, transparent 78%);
+}
+
+/* Each skill tile lights up in its own brand colour (set as --c on the element). */
+.tile {
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.tile:hover {
+  transform: translateY(-3px);
+  border-color: var(--c);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--c) 40%, transparent);
+}
+
+/* Slowly rotating dashed ring around the hero photo. */
+.photo-ring {
+  animation: spin 70s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gauge {
+  background: conic-gradient(var(--color-good) calc(var(--v) * 1%), var(--color-line) 0);
+}
+.gauge::before {
+  content: "";
+  position: absolute;
+  inset: 7%;
+  border-radius: 50%;
+  background: var(--color-surface);
+}
+
+dialog {
+  color: var(--color-fg);
+}
+dialog::backdrop {
+  background: rgba(5, 3, 20, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
