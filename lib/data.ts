@@ -10,7 +10,7 @@ export const profile = {
   location: "Dhaka, Bangladesh",
   tz: "UTC+6",
   intro:
-    "I build web apps with Next.js, Node.js and MongoDB or PostgreSQL. By day I help bootcamp students land their first developer jobs. I'm now looking for a remote frontend or full-stack role.",
+    "I build web apps with Next.js, Node.js and MongoDB or PostgreSQL. Passionate about scalable architecture, performance, and teamwork. I'm now looking for a remote frontend or full-stack role.",
   github: "https://github.com/webafsanakeya",
   linkedin: "https://www.linkedin.com/in/web-afsana-noor-keya-",
   // Optional: shown in Contact and Footer when filled in, hidden when "". Example: "you@gmail.com"
@@ -27,13 +27,14 @@ export const nav = {
   more: [
     { href: "#experience", label: "Experience" },
     { href: "#education", label: "Education" },
+    { href: "#certifications", label: "Certifications" },
     { href: "#achievements", label: "Achievements" },
     { href: "#contact", label: "Contact" },
   ],
 };
 
 export const stats = [
-  { value: "82", label: "students placed" },
+  { value: "80", label: "students placed" },
   { value: "100+", label: "final interviews" },
   { value: "200+", label: "students supported" },
 ];
@@ -53,22 +54,22 @@ export const experience: Experience[] = [
     abbr: "PH",
     title: "Talent Development Executive",
     org: "Programming Hero",
-    date: "Jan 2026 – Present",
+    date: "Jan 2026 – Oct 2026",
     bullets: [
-      "Support 7 to 8 bootcamp students one to one every day with resume reviews, mock interviews and project-presentation practice.",
-      "Of 300 students, 82 were placed in jobs and more than 100 reached final interviews.",
-      "Run hiring partner outreach and build career-prep and teaching materials for the bootcamp.",
-      "Researched Canada-focused tech job datasets and dashboards for market insight.",
+      "Conduct technical mock interviews, code assessments, and Resume/LinkedIn/GitHub/portfolio reviews for job-ready developer students.",
+      "Mentor 200+ students across 50+ career-readiness sessions,  providing personalized guidance on job searching, applications and interviews.",
+      "Supported student job placements through interview coordination, employer outreach, and career support, contributing to 80+ successful placement to date.",
     ],
   },
   {
     abbr: "WN",
     title: "Frontend Intern",
     org: "WebNex IT, remote",
-    date: "Sep 2025 – Apr 2026",
+    date: "Sep 2025 – Dec 2025",
     bullets: [
-      "Built frontend features as part of a remote team.",
-      "My first professional experience shipping production web code.",
+      "Built 20+ responsive, reusable UI components using React.js, Next.js, and Tailwind CSS.",
+      "Integrated REST APIs and optimized performance using memoization and lazy loading.",
+      "Collaborated in a 7-member Agile team using Git/GitHub and deployed apps to Vercel.",
     ],
   },
 ];
@@ -91,7 +92,7 @@ export const projects: Project[] = [
   {
     title: "Crafting Renovation",
     kind: "Next.js · CMS",
-      image: "/projects/renovation.png",
+    image: "/projects/renovation.png",
     text: "A home renovation and carpentry site with an admin CMS. Version 2 added form validation, SEO structured data, a secure login and a stats dashboard. Lighthouse on mobile: 94, 100, 100, 100.",
     tags: ["Next.js 16", "TypeScript", "MongoDB Atlas", "Tailwind", "shadcn/ui"],
     art: "from-[#3b1d8f] to-[#0e7490]",
@@ -218,20 +219,43 @@ export const skills = [
   { name: "WordPress", icon: "wordpress", color: "#4AA3DF" },
 ];
 
-export const education = [
-  {
-    abbr: "PH",
-    title: "MERN stack web development bootcamp",
-    org: "Programming Hero",
-    note: "Where I moved into tech, and where I now help the next students.",
-    status: "Completed",
-  },
+export type Education = {
+  abbr: string;
+  title: string;
+  org: string;
+  note: string;
+  status: string;
+  CGPA?: number;
+};
+
+export const education: Education[] = [
   {
     abbr: "BU",
     title: "Bachelor of Pharmacy (B.Pharm)",
     org: "Bangladesh University",
-    note: "Degree completed in 2013, before my career change into web development.",
-    status: "Graduated 2013",
+    CGPA: 3.43,
+    note: "A science degree that built my habits of precision and care, which I now bring to every line of code.",
+    status: "Graduated",
+  },
+];
+
+export type Certification = {
+  title: string;
+  text: string;
+  // Save the picture in public/projects/certificates/ and use the path without "public".
+  image?: string;
+};
+
+export const certifications: Certification[] = [
+  {
+    title: "Programming Hero certificate",
+    text: "Completed the Programming Hero web development bootcamp.",
+    image: "/projects/certificates/programming-hero.png",
+  },
+  {
+    title: "Responsive Web Design",
+    text: "Certificate of Achievement from CodersTrust, completed Dec 2022 – May 2023.",
+    image: "/projects/certificates/responsive-web-design.png",
   },
 ];
 
@@ -246,9 +270,9 @@ export type Achievement = {
 
 export const achievements: Achievement[] = [
   {
-    num: "82",
+    num: "80",
     title: "Student placements",
-    text: "Out of 300 students at Programming Hero, 82 have been placed in jobs, and more than 100 reached final interviews.",
+    text: "Out of 200 students at Programming Hero, 80 have been placed in jobs, and more than 100 reached final interviews.",
   },
   {
     gauges: [94, 100, 100, 100],
@@ -259,10 +283,5 @@ export const achievements: Achievement[] = [
     num: "AI",
     title: "Shipped an AI agent app",
     text: "Delivered a full CRM module with a LangGraph agent, a FastAPI backend and a React Redux frontend as a technical assignment.",
-  },
-  {
-    num: "WP",
-    title: "WordPress certificate",
-    text: "Certified in WordPress, which I use for fast client sites alongside my MERN work.",
   },
 ];

@@ -43,14 +43,15 @@ export default function About() {
           <CodeCard />
           <div className="grid min-w-0 gap-4 text-muted">
             <p>
-              I&apos;m a full-stack developer in Dhaka. I started in tech through the{" "}
+              I&apos;m a full-stack developer based in Dhaka, with a genuine love for technology and a mind that is always
+              curious about new ideas. I started in tech through the{" "}
               <strong className="font-semibold text-fg">Programming Hero bootcamp</strong> and now work there in talent
               development, helping students with resumes, mock interviews and project presentations.
             </p>
             <p>
-              Before tech I was a <strong className="font-semibold text-fg">news presenter</strong>, and I hold a B.Pharm
-              degree. That background is why I explain my code clearly and stay calm in front of a room. I want to grow
-              into advanced software engineering and work with international teams.
+              Alongside that, <strong className="font-semibold text-fg">I keep learning and building projects</strong>,
+              always pushing myself to become a better developer. I&apos;m excited to keep growing as a software engineer,
+              build useful products, and work with talented people from around the world.
             </p>
             <ul aria-label="Core technologies" className="flex flex-wrap gap-2">
               {coreTech.map((t) => (

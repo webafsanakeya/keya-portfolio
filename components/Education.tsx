@@ -6,6 +6,7 @@ export default function Education() {
     <section id="education" aria-labelledby="edu-title" className={section}>
       <div className={wrap}>
         <SectionHead pill="My background" title="Education" id="edu-title" />
+
         <div className="mx-auto grid max-w-[860px] gap-4">
           {education.map((e) => (
             <article key={e.title} className="card-surface flex flex-wrap items-center gap-5 p-5 sm:flex-nowrap">
@@ -19,9 +20,16 @@ export default function Education() {
                 <h3 className="text-[1.1rem] font-bold leading-snug">{e.org}</h3>
                 <p className="text-[0.95rem] text-fg/90">{e.title}</p>
                 <p className="text-[0.88rem] text-muted">{e.note}</p>
-                <span className="mt-1 w-fit rounded-full border border-good/40 bg-good/10 px-2.5 py-0.5 text-[0.72rem] font-medium text-good">
-                  {e.status}
-                </span>
+                <div className="mt-1 flex flex-wrap items-center gap-2">
+                  <span className="w-fit rounded-full border border-good/40 bg-good/10 px-2.5 py-0.5 text-[0.72rem] font-medium text-good">
+                    {e.status}
+                  </span>
+                  {e.CGPA !== undefined && (
+                    <span className="w-fit rounded-full border border-cyan/30 bg-cyan/10 px-2.5 py-0.5 text-[0.72rem] font-medium text-cyan">
+                      CGPA {e.CGPA.toFixed(2)}
+                    </span>
+                  )}
+                </div>
               </div>
             </article>
           ))}

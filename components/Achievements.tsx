@@ -8,7 +8,7 @@ export default function Achievements() {
     <section id="achievements" aria-labelledby="ach-title" className={section}>
       <div className={wrap}>
         <SectionHead pill="Milestones" title="Achievements" id="ach-title" />
-        <div className="mx-auto grid max-w-[960px] gap-4 sm:grid-cols-2">
+        <div className="mx-auto grid max-w-[1000px] grid-cols-1 gap-4 md:grid-cols-3">
           {achievements.map((a) => (
             <article key={a.title} className="card-surface grid content-start gap-3 p-5">
               {a.image ? (
